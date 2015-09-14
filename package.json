@@ -1,0 +1,48 @@
+{
+  "name": "enb-css",
+  "version": "0.0.1",
+  "description": "CSS tech for ENB",
+  "keywords": [
+    "enb",
+    "css",
+    "autoprefixer",
+    "sourcemap",
+    "compress"
+  ],
+  "author": "Andrew Abramov <andrewblond@yandex.com>",
+  "licenses": [
+    {
+      "type": "MPL-2.0",
+      "url": "https://github.com/enb-make/enb-css/blob/master/LICENSE.txt"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:enb-make/enb-css.git"
+  },
+  "homepage": "https://github.com/enb-make/enb-css",
+  "bugs": "https://github.com/enb-make/enb-css/issues",
+  "maintainers": [
+    {
+      "name": "Andrew Abramov",
+      "email": "andrewblond@yandex.com",
+      "github-username": "andrewblond"
+    }
+  ],
+  "contributors": [
+    "Andrew Abramov <andrewblond@yandex.com>"
+  ],
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "peerDependencies": {
+    "enb": ">=0.16.0 <1.0.0"
+  },
+  "scripts": {
+    "test": "npm run lint && npm run unit",
+    "lint": "jshint . && jscs .",
+    "unit": "mocha test/**/*.test.js",
+    "cover": "istanbul cover _mocha -- test/**/*.test.js",
+    "coveralls": "npm i coveralls && npm run cover && cat ./coverage/lcov.info | coveralls",
+  }
+}
