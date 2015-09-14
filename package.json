@@ -38,11 +38,34 @@
   "peerDependencies": {
     "enb": ">=0.16.0 <1.0.0"
   },
+  "dependencies": {
+    "autoprefixer": "6.0.2",
+    "csswring": "4.0.0",
+    "postcss": "5.0.5",
+    "postcss-import": "7.0.0",
+    "postcss-url": "5.0.0",
+    "vow": "0.4.10"
+  },
+  "devDependencies": {
+    "chai": "3.2.0",
+    "chai-as-promised": "5.1.0",
+    "enb": ">=0.16.0 <1.0.0",
+    "istanbul": "0.3.20",
+    "jscs": "1.13.1",
+    "jshint": "2.8.0",
+    "mocha": "2.3.2",
+    "mock-enb": "0.1.0",
+    "mock-fs": "3.2.0"
+  },
+  "files": [
+    "techs/**",
+    "LICENSE.txt"
+  ],
   "scripts": {
     "test": "npm run lint && npm run unit",
     "lint": "jshint . && jscs .",
     "unit": "mocha test/**/*.test.js",
     "cover": "istanbul cover _mocha -- test/**/*.test.js",
-    "coveralls": "npm i coveralls && npm run cover && cat ./coverage/lcov.info | coveralls",
+    "coveralls": "npm i coveralls && npm run cover && cat ./coverage/lcov.info | coveralls"
   }
 }
