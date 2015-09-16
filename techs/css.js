@@ -1,4 +1,4 @@
-// Support node 0.10: `postcss` use promises
+// Support node 0.10: `postcss` uses promises
 require('es6-promise').polyfill();
 
 var EOL = require('os').EOL,
@@ -17,9 +17,9 @@ var EOL = require('os').EOL,
  *
  * Builds CSS files using [Postcss]{@link https://github.com/postcss/postcss}.
  *
- * Files processing in 2 steps:<br/>
- * 1. Prepares list of @import sources (contain source code).
- * 2. Expands @import and rebase urls.
+ * Files are processing in 2 steps:<br/>
+ * 1. Prepare list of @import sources (contain source code).
+ * 2. Expand @import and rebase urls.
  *
  * @param {Object}          [options]                        Options
  * @param {String}          [options.filesTarget='?.files']  Path to target with [FileList]{@link http://bit.ly/1GTUOj0}
