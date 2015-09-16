@@ -1,3 +1,6 @@
+// Support node 0.10: `postcss` use promises
+require('es6-promise').polyfill();
+
 var EOL = require('os').EOL,
     path = require('path'),
     vfs = require('enb/lib/fs/async-fs'),
