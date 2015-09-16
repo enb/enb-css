@@ -9,7 +9,7 @@ enb-css
 
 Пакет предоставляет [ENB](https://ru.bem.info/tools/bem/enb-bem/)-технологию для сборки CSS-файлов в проектах, построенных по [методологии БЭМ](https://ru.bem.info/method/).
 
-Принципы работы технологии и ее API описаны в документе [API технологии](api.ru.md).
+Принципы работы технологии и ее API описаны в документе [API технологии](docs/api.ru.md).
 
 Обзор документа
 ---------------
@@ -78,19 +78,19 @@ module.exports = function(config) {
 
 Технология `css` поддерживает [Autoprefixer](https://github.com/postcss/autoprefixer).
 
-Для автоматического добавления вендорных префиксов в процессе сборки используйте опцию [autoprefixer](api.ru.md#autoprefixer).
+Для автоматического добавления вендорных префиксов в процессе сборки используйте опцию [autoprefixer](docs/api.ru.md#autoprefixer).
 
 ### Минимизация CSS-кода
 
 Для минимизации CSS-кода используется [csswring](https://github.com/hail2u/node-csswring).
 
-Включить минимизацию можно с помощью опции [compress](api.ru.md#compress).
+Включить минимизацию можно с помощью опции [compress](docs/api.ru.md#compress).
 
 ### Source Maps
 
 Технология `css` позволяет строить карты кода (sourcemap) с информацией об исходных файлах.
 
-Включить построение карт кода можно с помощью опции [sourcemap](api.ru.md#sourcemap).
+Включить построение карт кода можно с помощью опции [sourcemap](docs/api.ru.md#sourcemap).
 
 Дополнительная документация
 ---------------------------
