@@ -1,9 +1,9 @@
 // Support node 0.10: `postcss` uses promises
 require('es6-promise').polyfill();
 
-var EOL = require('os').EOL,
-    path = require('path'),
+var path = require('path'),
     vfs = require('enb/lib/fs/async-fs'),
+    composeImports = require('../lib/compose-imports'),
     postcss = require('postcss'),
     atImport = require('postcss-import'),
     atUrl = require('postcss-url'),
@@ -66,10 +66,9 @@ module.exports = require('enb/techs/css').buildFlow()
     .builder(function (fileList) {
         var dirname = this.node.getDir(),
             filename = path.join(dirname, this._target),
-            // make list of files
-            css = fileList.map(function (file) {
-                return '@import "' + path.relative(dirname, file.fullname) + '";';
-            }).join(EOL),
+            css = composeImports(fileList.map(function (file) {
+                return file.fullname;
+            }), { root: dirname }),
             processor = postcss();
 
         processor
