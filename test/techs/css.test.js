@@ -19,15 +19,6 @@ describe('css', function () {
             .should.be.rejectedWith(/Unclosed block/);
     });
 
-    it('should provide one file', function () {
-        var sources = {
-                'foo.css': '.foo {}'
-            },
-            output = '.foo {}';
-
-        return assert(sources, output);
-    });
-
     it('should concat several files', function () {
         var sources = {
                 'bar.css': '.bar {}',
@@ -39,34 +30,6 @@ describe('css', function () {
             ].join(EOL);
 
         return assert(sources, output);
-    });
-
-    it('should import .css file', function () {
-        var sources = {
-                'foo.css': '@import "./bar.css";',
-                'bar.css': '.baz {}'
-            },
-            output = '.baz {}';
-
-        return assert(sources, output);
-    });
-
-    it('should rebase url', function () {
-        var sources = {
-                'foo.css': '.foo { background: url("foo.png"); }'
-            },
-            output = '.foo { background: url("../sources/foo.png"); }';
-
-        return assert(sources, output);
-    });
-
-    it('should compressed result css', function () {
-        var sources = {
-                'foo.css': '.foo { bar: baz; }'
-            },
-            output = '.foo{bar:baz}';
-
-        return assert(sources, output, { compress: true });
     });
 
     describe('sourcemap', function () {
@@ -82,7 +45,7 @@ describe('css', function () {
                 });
         });
 
-        it('should link to sourcemap file', function () {
+        it('should add annotation to sourcemap file', function () {
             var sources = {
                 'foo.css': '.foo {}'
             };
@@ -98,42 +61,6 @@ describe('css', function () {
 
             return build(sources, { sourcemap: 'inline' })
                 .should.eventually.include('/*# sourceMappingURL=data:application/json;base64');
-        });
-    });
-
-    describe('autoprefixer', function () {
-        it('should add vendor prefixes from browserlist', function () {
-            var sources = {
-                    'foo.css': '.foo { display: flex; }'
-                },
-                output = [
-                    '.foo {',
-                    'display: -webkit-box;',
-                    'display: -webkit-flex;',
-                    'display: -ms-flexbox;',
-                    'display: flex;',
-                    '}'
-                ].join(' ');
-
-            return assert(sources, output, { autoprefixer: true });
-        });
-
-        it('should add vendor prefixes from browser config', function () {
-            var sources = {
-                    'foo.css': '.foo { display: flex; }'
-                },
-                output = [
-                    '.foo {',
-                    'display: -ms-flexbox;',
-                    'display: flex;',
-                    '}'
-                ].join(' ');
-
-            return assert(sources, output, {
-                autoprefixer: {
-                    browsers: ['Explorer 10']
-                }
-            });
         });
     });
 });

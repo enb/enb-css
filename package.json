@@ -56,7 +56,10 @@
     "jshint": "2.8.0",
     "mocha": "2.3.2",
     "mock-enb": "0.1.0",
-    "mock-fs": "3.2.0"
+    "mock-fs": "3.2.0",
+    "proxyquire": "1.7.2",
+    "sinon": "1.16.1",
+    "sinon-chai": "2.8.0"
   },
   "files": [
     "techs/**",

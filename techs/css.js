@@ -1,14 +1,8 @@
-// Support node 0.10: `postcss` uses promises
-require('es6-promise').polyfill();
-
 var path = require('path'),
+    vow = require('vow'),
     vfs = require('enb/lib/fs/async-fs'),
     composeImports = require('../lib/compose-imports'),
-    postcss = require('postcss'),
-    atImport = require('postcss-import'),
-    atUrl = require('postcss-url'),
-    csswring = require('csswring'),
-    autoprefixer = require('autoprefixer');
+    processCSS = require('../lib/process-css');
 
 /**
  * @class CSSTech
@@ -66,50 +60,23 @@ module.exports = require('enb/techs/css').buildFlow()
     .builder(function (fileList) {
         var dirname = this.node.getDir(),
             filename = path.join(dirname, this._target),
-            css = composeImports(fileList.map(function (file) {
+            cssImports = composeImports(fileList.map(function (file) {
                 return file.fullname;
             }), { root: dirname }),
-            processor = postcss();
-
-        processor
-            .use(atImport())
-            .use(atUrl({
-                url: 'rebase'
-            }));
-
-        // use autoprefixer
-        if (this._autoprefixer) {
-            processor.use(
-               (this._autoprefixer.browsers ?
-                   autoprefixer({ browsers: this._autoprefixer.browsers }) :
-                   autoprefixer)
-            );
-        }
-
-        // compress css
-        if (this._compress) {
-            processor.use(csswring());
-        }
-
-        // compile css
-        var result = processor
-            .process(css, {
+            result = processCSS(cssImports, {
                 from: filename,
                 to: filename,
-                map: this._sourcemap && {
-                    inline: this._sourcemap === 'inline',
-                    annotation: true
-                }
-            });
+                sourcemap: this._sourcemap,
+                autoprefixer: this._autoprefixer,
+                compress: this._compress
+            }),
+            map = result.map;
 
-        // write map file
-        if (this._sourcemap && this._sourcemap !== 'inline') {
-            return vfs.write(filename + '.map', JSON.stringify(result.map))
-                .then(function () {
-                    return result.css;
-                });
-        }
-
-        return result.css;
+        return (map
+            ? vfs.write(filename + '.map', JSON.stringify(map))
+            : vow.resolve()
+        ).then(function () {
+            return result.css;
+        });
     })
     .createTech();
