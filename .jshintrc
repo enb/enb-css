@@ -15,5 +15,6 @@
     "node": true,
 
     "expr": true,
+    "laxbreak": true,
     "sub": true
 }
