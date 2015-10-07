@@ -39,26 +39,26 @@
     "enb": ">=0.16.0 <1.0.0"
   },
   "dependencies": {
-    "autoprefixer": "6.0.2",
+    "autoprefixer": "6.0.3",
     "csswring": "4.0.0",
     "es6-promise": "3.0.2",
-    "postcss": "5.0.5",
+    "postcss": "5.0.8",
     "postcss-import": "7.0.0",
-    "postcss-url": "5.0.0",
-    "vow": "0.4.10"
+    "postcss-url": "5.0.1",
+    "vow": "0.4.11"
   },
   "devDependencies": {
-    "chai": "3.2.0",
+    "chai": "3.3.0",
     "chai-as-promised": "5.1.0",
     "enb": ">=0.16.0 <1.0.0",
-    "istanbul": "0.3.20",
+    "istanbul": "0.3.22",
     "jscs": "1.13.1",
     "jshint": "2.8.0",
-    "mocha": "2.3.2",
-    "mock-enb": "0.1.0",
-    "mock-fs": "3.2.0",
-    "proxyquire": "1.7.2",
-    "sinon": "1.16.1",
+    "mocha": "2.3.3",
+    "mock-enb": "0.2.0",
+    "mock-fs": "3.3.0",
+    "proxyquire": "1.7.3",
+    "sinon": "1.17.1",
     "sinon-chai": "2.8.0"
   },
   "files": [
