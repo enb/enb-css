@@ -1,6 +1,8 @@
 var path = require('path'),
     vow = require('vow'),
-    vfs = require('enb/lib/fs/async-fs'),
+    enb = require('enb'),
+    vfs = enb.asyncFS || require('enb/lib/fs/async-fs'),
+    buildFlow = enb.buildFlow || require('enb/lib/build-flow'),
     composeImports = require('../lib/compose-imports'),
     processCSS = require('../lib/process-css');
 
@@ -50,7 +52,7 @@ var path = require('path'),
  *     });
  * };
  */
-module.exports = require('enb/techs/css').buildFlow()
+module.exports = buildFlow.create()
     .name('css')
     .target('target', '?.css')
     .defineOption('sourcemap', false)
