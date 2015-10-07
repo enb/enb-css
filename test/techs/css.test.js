@@ -1,6 +1,7 @@
 var EOL = require('os').EOL,
     fs = require('fs'),
     mockFs = require('mock-fs'),
+    loadDirSync = require('mock-enb/utils/dir-utils').loadDirSync,
     MockNode = require('mock-enb/lib/mock-node'),
     FileList = require('enb/lib/file-list'),
     CSSTech = require('../../techs/css');
@@ -74,7 +75,7 @@ function build(sources, opts) {
     var bundle = new MockNode('bundle'),
         fileList = new FileList();
 
-    fileList.loadFromDirSync('sources');
+    fileList.addFiles(loadDirSync('sources'));
     bundle.provideTechData('?.files', fileList);
 
     return bundle.runTechAndGetContent(CSSTech, opts)
