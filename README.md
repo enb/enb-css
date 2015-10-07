@@ -55,7 +55,7 @@ module.exports = function(config) {
         // Получаем список файлов (FileList)
         node.addTechs([
             [FileProvideTech, { target: '?.bemdecl.js' }],
-            [bemTechs.levels, levels: ['blocks']],
+            [bemTechs.levels, { levels: ['blocks'] }],
             [bemTechs.deps],
             [bemTechs.files]
         ]);
