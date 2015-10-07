@@ -13,8 +13,11 @@
     "unused": true,
 
     "node": true,
+    "mocha": true,
+    "globals": {
+        "expect": false
+    },
 
     "expr": true,
-    "laxbreak": true,
     "sub": true
 }
