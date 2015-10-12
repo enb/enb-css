@@ -44,7 +44,7 @@
     "es6-promise": "3.0.2",
     "postcss": "5.0.8",
     "postcss-import": "7.0.0",
-    "postcss-url": "5.0.1",
+    "postcss-url": "5.0.2",
     "vow": "0.4.11"
   },
   "devDependencies": {
