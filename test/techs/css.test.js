@@ -24,13 +24,12 @@ describe('css', function () {
         var sources = {
                 'bar.css': '.bar {}',
                 'baz.css': '.baz {}'
-            },
-            output = [
-                '.bar {}',
-                '.baz {}'
-            ].join(EOL);
+            };
 
-        return assert(sources, output);
+        return build(sources).should.become([
+            '.bar {}',
+            '.baz {}'
+        ].join(EOL));
     });
 
     describe('sourcemap', function () {
@@ -81,12 +80,5 @@ function build(sources, opts) {
     return bundle.runTechAndGetContent(CSSTech, opts)
         .spread(function (res) {
             return res;
-        });
-}
-
-function assert(sources, expected, opts) {
-    return build(sources, opts)
-        .then(function (actual) {
-            actual.should.eql(expected);
         });
 }

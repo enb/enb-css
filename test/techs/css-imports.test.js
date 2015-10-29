@@ -14,23 +14,23 @@ describe('css-imports', function () {
     it('should import file', function () {
         var sources = {
                 'foo.css': '.bar {}'
-            },
-            output = '@import "' + path.normalize('../sources/foo.css') + '";';
+            };
 
-        return assert(sources, output);
+        return build(sources)
+            .should.become('@import "' + path.normalize('../sources/foo.css') + '";');
     });
 
     it('should import several files', function () {
         var sources = {
                 'bar.css': '.bar {}',
                 'baz.css': '.baz {}'
-            },
-            output = [
-                '@import "' + path.normalize('../sources/bar.css') + '";',
-                '@import "' + path.normalize('../sources/baz.css') + '";'
-            ].join(EOL);
+            };
 
-        return assert(sources, output);
+            return build(sources)
+                .should.become([
+                    '@import "' + path.normalize('../sources/bar.css') + '";',
+                    '@import "' + path.normalize('../sources/baz.css') + '";'
+                ].join(EOL));
     });
 });
 
@@ -49,12 +49,5 @@ function build(sources, opts) {
     return bundle.runTechAndGetContent(CSSImportsTech, opts)
         .spread(function (res) {
             return res;
-        });
-}
-
-function assert(sources, expected, opts) {
-    return build(sources, opts)
-        .then(function (actual) {
-            actual.should.eql(expected);
         });
 }
