@@ -7,9 +7,14 @@ enb-css
 [![Coverage Status](https://img.shields.io/coveralls/enb-make/enb-css.svg?style=flat)](https://coveralls.io/r/enb-make/enb-css?branch=master)
 [![Dependency Status](http://img.shields.io/david/enb-make/enb-css.svg?style=flat)](https://david-dm.org/enb-make/enb-css)
 
-Пакет предоставляет [ENB](https://ru.bem.info/tools/bem/enb-bem/)-технологию для сборки CSS-файлов в проектах, построенных по [методологии БЭМ](https://ru.bem.info/method/).
+Пакет предоставляет набор [ENB](https://ru.bem.info/tools/bem/enb-bem/)-технологий для сборки CSS-файлов в проектах, построенных по [методологии БЭМ](https://ru.bem.info/method/).
 
-Принципы работы технологии и ее API описаны в документе [API технологии](docs/api.ru.md).
+**Технологии пакета `enb-css`:**
+
+* [css](docs/api.ru.md#css) — технология собирает исходные CSS-файлы.
+* [css-imports](docs/api.ru.md#css-imports) — технология состовляет список `@import`'ов из исходных CSS-файлов.
+
+Принципы работы технологий и их API описаны в документе [API технологий](docs/api.ru.md).
 
 Обзор документа
 ---------------
