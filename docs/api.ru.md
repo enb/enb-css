@@ -161,8 +161,3 @@ module.exports = function(config) {
     });
 };
 ```
-
-Лицензия
---------
-
-© 2015 YANDEX LLC. Код лицензирован [Mozilla Public License 2.0](LICENSE.txt).
