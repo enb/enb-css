@@ -1,4 +1,13 @@
-# API технологии `css`
+API технологий
+==============
+
+Пакет предоставляет следующие технологии:
+
+* [css](#css) — технология собирает исходные CSS-файлы.
+* [css-imports](#css-imports) — технология состовляет список `@import`'ов из исходных CSS-файлов.
+
+css
+---
 
 Собирает исходные CSS-файлы блоков со стилями.
 
@@ -93,6 +102,61 @@ module.exports = function(config) {
 
         // Создаем CSS-файлы
         node.addTech([CSSTech, { /* опции */ }]);
+        node.addTarget('?.css');
+    });
+};
+```
+
+css-imports
+-----------
+
+Состовляет список `@import`'ов из исходных CSS-файлов блоков.
+
+### Опции
+
+* [target](#target)
+* [filesTarget](#filestarget)
+* [sourceSuffixes](#sourcesuffixes)
+
+#### target
+
+Тип: `String`. По умолчанию: `?.css`.
+
+Имя файла, куда будет записан результат сборки необходимых `.css`-файлов проекта.
+
+#### filesTarget
+
+Тип: `String`. По умолчанию: `?.files`.
+
+Имя таргета, откуда будет доступен список исходных файлов для сборки. Список файлов предоставляет технология [files](https://github.com/enb-bem/enb-bem-techs/blob/master/docs/api.ru.md#files) пакета [enb-bem-techs](https://github.com/enb-bem/enb-bem-techs/blob/master/README.md).
+
+#### sourceSuffixes
+
+Тип: `String | String[]`. По умолчанию: `['css']`.
+
+Суффиксы, по которым отбираются файлы стилей для дальнейшей сборки.
+
+--------------------------------------
+
+## Пример использования технологии
+
+```js
+var CSSImportsTech = require('enb-css/techs/imports'),
+    FileProvideTech = require('enb/techs/file-provider'),
+    bemTechs = require('enb-bem-techs');
+
+module.exports = function(config) {
+    config.node('bundle', function(node) {
+        // Получаем имена файлов (FileList)
+        node.addTechs([
+            [FileProvideTech, { target: '?.bemdecl.js' }],
+            [bemTechs.levels, { levels: ['blocks'] }],
+            [bemTechs.deps],
+            [bemTechs.files]
+        ]);
+
+        // Создаем CSS-файлы
+        node.addTech([CSSImportsTech, { /* опции */ }]);
         node.addTarget('?.css');
     });
 };
