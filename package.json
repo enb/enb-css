@@ -13,15 +13,15 @@
   "licenses": [
     {
       "type": "MPL-2.0",
-      "url": "https://github.com/enb-make/enb-css/blob/master/LICENSE.txt"
+      "url": "https://github.com/enb/enb-css/blob/master/LICENSE.txt"
     }
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:enb-make/enb-css.git"
+    "url": "git@github.com:enb/enb-css.git"
   },
-  "homepage": "https://github.com/enb-make/enb-css",
-  "bugs": "https://github.com/enb-make/enb-css/issues",
+  "homepage": "https://github.com/enb/enb-css",
+  "bugs": "https://github.com/enb/enb-css/issues",
   "maintainers": [
     {
       "name": "Andrew Abramov",
