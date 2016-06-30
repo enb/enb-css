@@ -19,6 +19,7 @@ css
 * [filesTarget](#filestarget)
 * [sourceSuffixes](#sourcesuffixes)
 * [sourcemap](#sourcemap)
+* [sourcesContent](#sourcesContent)
 * [autoprefixer](#autoprefixer)
 * [compress](#compress)
 
@@ -49,7 +50,8 @@ css
 *Допустимые значения:*
 
 - **true:** карта хранится в отдельном файле с расширение `.map`.  
-- **inline:** карта встраивается в скомпилированный файл в виде закодированной строки в формате `base64`.  
+- **inline:** карта встраивается в скомпилированный файл в виде закодированной строки в формате `base64`.
+- **object:** [опции postcss](https://github.com/postcss/postcss/blob/master/docs/source-maps.md#options).
 
 #### autoprefixer
 
