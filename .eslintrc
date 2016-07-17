@@ -1,0 +1,8 @@
+env:
+  node: true
+  mocha: true
+
+extends: pedant
+
+rules:
+  no-unused-expressions: off
