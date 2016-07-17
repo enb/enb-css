@@ -85,6 +85,13 @@ describe('process css', function () {
 
             processor.process.should.calledWithMatch(css, { map: { inline: true } });
         });
+
+        it('should build inline source maps without content', function () {
+            var map = { inline: true, sourcesContent: false };
+            processCSS(css, { sourcemap: map });
+
+            processor.process.should.calledWithMatch(css, { map: map });
+        });
     });
 
     describe('compress', function () {
