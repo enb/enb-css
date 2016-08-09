@@ -49,7 +49,7 @@ css
 
 *Допустимые значения:*
 
-- **true:** карта хранится в отдельном файле с расширение `.map`.  
+- **true:** карта хранится в отдельном файле с расширение `.map`.
 - **inline:** карта встраивается в скомпилированный файл в виде закодированной строки в формате `base64`.
 - **object:** [опции postcss](https://github.com/postcss/postcss/blob/master/docs/source-maps.md#options).
 
@@ -143,7 +143,7 @@ css-imports
 ## Пример использования технологии
 
 ```js
-var CSSImportsTech = require('enb-css/techs/imports'),
+var CSSImportsTech = require('enb-css/techs/css-imports'),
     FileProvideTech = require('enb/techs/file-provider'),
     bemTechs = require('enb-bem-techs');
 
