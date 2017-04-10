@@ -1,6 +1,8 @@
 enb-css
 =======
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/enb/enb-css.svg)](https://greenkeeper.io/)
+
 [![NPM version](http://img.shields.io/npm/v/enb-css.svg?style=flat)](http://www.npmjs.org/package/enb-css)
 [![Build Status](http://img.shields.io/travis/enb/enb-css/master.svg?style=flat&label=tests)](https://travis-ci.org/enb/enb-css)
 [![Build status](http://img.shields.io/appveyor/ci/blond/enb-css.svg?style=flat&label=windows)](https://ci.appveyor.com/project/andrewblond/enb-css)
