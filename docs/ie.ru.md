@@ -1,5 +1,4 @@
-Сборка отдельного бандла для IE
-===============================
+# Сборка отдельного бандла для IE
 
 Если в проекте есть стили, которые должны примениться только для IE, то их помещают в отдельный файл со специальным расширением `.ie*.css`:
 
@@ -9,56 +8,57 @@
 * `.ie8.css` — стили для IE 8.
 * `.ie9.css` — стили для IE 9.
 
-Чтобы собрать отдельный бандл для IE нужно:
+Чтобы собрать отдельный бандл для IE:
 
-**1.** В папке блока создать один или несколько файлов c расширением `.ie*.css`:
+1. Создайте один или несколько файлов c расширением `.ie*.css` в папке блока:
 
-```
-blocks/
-└── block/
-    ├── block.css
-    ├── block.ie.css
-    └── block.ie6.css
-```
+  ```
+  blocks/
+  └── block/
+      ├── block.css
+      ├── block.ie.css
+      └── block.ie6.css
+  ```
 
-**2.** Добавить технологию `CSSTech` ещё раз:
+2. Добавьте технологию `CSSTech` ещё раз:
 
-```js
-node.addTechs([
-   [CSSTech], // для основного CSS
-   [CSSTech]  // для IE
-]);
-```
+  ```js
+  node.addTechs([
+     [CSSTech], // для основного CSS
+     [CSSTech]  // для IE
+  ]);
+  ```
 
-**3.** Добавить новую цель сборки для IE файла — `?.ie6.css`:
+3. Добавьте новую цель сборки для IE файла — `?.ie6.css`:
 
-```js
-node.addTechs([
-    [CSSTech],
-    [CSSTech, { target: '?.ie6.css' }]  // IE 6
-]);
+  ```js
+  node.addTechs([
+      [CSSTech],
+      [CSSTech, { target: '?.ie6.css' }]  // IE 6
+  ]);
+  node.addTargets(['?.css', '?.ie6.css']);
+  ```
 
-node.addTargets(['?.css', '?.ie6.css']);
-```
+4. Добавьте стили:
 
-**4.** В БЭМ проектах принято подключать стили с помощью [условных комментариев](https://ru.wikipedia.org/wiki/Условный_комментарий).
+  ```html
+  <!DOCTYPE html>
+  <html>
+      <head>
+          <meta charset="utf-8"/>
+          <!--[if gt IE 9]><!-->
+              <link rel="stylesheet" href="index.css"/>
+          <!--<![endif]-->
+          <!--[if lte IE 9]>
+              <link rel="stylesheet" href="index.ie.css"/>
+          <![endif]-->
+      </head>
+      <body>
+      </body>
+  </html>
+  ```
 
-**Пример**
-
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8"/>
-        <!--[if gt IE 9]><!-->
-            <link rel="stylesheet" href="index.css"/>
-        <!--<![endif]-->
-        <!--[if lte IE 9]>
-            <link rel="stylesheet" href="index.ie.css"/>
-        <![endif]-->
-    </head>
-    <body>
-```
+> **Примечание.** В БЭМ проектах принято подключать стили с помощью [условных комментариев](https://ru.wikipedia.org/wiki/Условный_комментарий).
 
 Важно, чтобы файл, подключаемый для IE, содержал стили не только специфичные для него, но и общие для всей страницы.
 

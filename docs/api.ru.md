@@ -1,13 +1,11 @@
-API технологий
-==============
+# API технологий
 
 Пакет предоставляет следующие технологии:
 
 * [css](#css) — технология собирает исходные CSS-файлы.
 * [css-imports](#css-imports) — технология состовляет список `@import`'ов из исходных CSS-файлов.
 
-css
----
+## css
 
 Собирает исходные CSS-файлы блоков со стилями.
 
@@ -19,7 +17,6 @@ css
 * [filesTarget](#filestarget)
 * [sourceSuffixes](#sourcesuffixes)
 * [sourcemap](#sourcemap)
-* [sourcesContent](#sourcesContent)
 * [autoprefixer](#autoprefixer)
 * [compress](#compress)
 
@@ -33,7 +30,7 @@ css
 
 Тип: `String`. По умолчанию: `?.files`.
 
-Имя таргета, откуда будет доступен список исходных файлов для сборки. Список файлов предоставляет технология [files](https://github.com/enb-bem/enb-bem-techs/blob/master/docs/api.ru.md#files) пакета [enb-bem-techs](https://github.com/enb-bem/enb-bem-techs/blob/master/README.md).
+Имя таргета, откуда будет доступен список исходных файлов для сборки. Список файлов предоставляет технология [files](https://github.com/enb/enb-bem-techs/blob/master/docs/api/api.ru.md#files) пакета [enb-bem-techs](https://github.com/enb/enb-bem-techs/blob/master/README.ru.md).
 
 #### sourceSuffixes
 
@@ -49,9 +46,9 @@ css
 
 *Допустимые значения:*
 
-- **true:** карта хранится в отдельном файле с расширение `.map`.
-- **inline:** карта встраивается в скомпилированный файл в виде закодированной строки в формате `base64`.
-- **object:** [опции postcss](https://github.com/postcss/postcss/blob/master/docs/source-maps.md#options).
+* **true** — карта хранится в отдельном файле с расширение `.map`.
+* **inline** — карта встраивается в скомпилированный файл в виде закодированной строки в формате `base64`.
+* **object** — [опции postcss](https://github.com/postcss/postcss/blob/master/docs/source-maps.md#options).
 
 #### autoprefixer
 
@@ -61,9 +58,9 @@ css
 
 *Допустимые значения:*
 
-- **false:** отключает `autoprefixer`.
-- **true:** префиксы добавляются для самых актуальных версий браузеров на основании данных сервиса [caniuse.com](http://caniuse.com) (поведение по умолчанию модуля [autoprefixer](https://github.com/postcss/autoprefixer)).
-- **browsers: String[]:** задание конфигурации в случае, если требуется передать точный список поддерживаемых браузеров.
+* **false** (`Boolean`) — отключает `autoprefixer`.
+* **true** (`Boolean`) — префиксы добавляются для самых актуальных версий браузеров на основании данных сервиса [caniuse.com](http://caniuse.com) (поведение по умолчанию модуля [autoprefixer](https://github.com/postcss/autoprefixer)).
+* **browsers** (`String[]`) — задание конфигурации в случае, если требуется передать точный список поддерживаемых браузеров.
 
   **Пример**
 
@@ -73,7 +70,7 @@ css
   }
   ```
 
-  Подробнее в документации [autoprefixer](https://github.com/postcss/autoprefixer#browsers).
+  > **Примечание.** Подробнее в документации [autoprefixer](https://github.com/postcss/autoprefixer#browsers).
 
 #### compress
 
@@ -83,9 +80,7 @@ css
 
 Поддерживает карты кода (sourcemap).
 
---------------------------------------
-
-## Пример использования технологии
+**Пример**
 
 ```js
 var CSSTech = require('enb-css/techs/css'),
@@ -109,8 +104,7 @@ module.exports = function(config) {
 };
 ```
 
-css-imports
------------
+## css-imports
 
 Состовляет список `@import`'ов из исходных CSS-файлов блоков.
 
@@ -130,7 +124,7 @@ css-imports
 
 Тип: `String`. По умолчанию: `?.files`.
 
-Имя таргета, откуда будет доступен список исходных файлов для сборки. Список файлов предоставляет технология [files](https://github.com/enb-bem/enb-bem-techs/blob/master/docs/api.ru.md#files) пакета [enb-bem-techs](https://github.com/enb-bem/enb-bem-techs/blob/master/README.md).
+Имя таргета, откуда будет доступен список исходных файлов для сборки. Список файлов предоставляет технология [files](https://github.com/enb/enb-bem-techs/blob/master/docs/api/api.ru.md#files) пакета [enb-bem-techs](https://github.com/enb/enb-bem-techs/blob/master/README.ru.md).
 
 #### sourceSuffixes
 
@@ -138,9 +132,7 @@ css-imports
 
 Суффиксы, по которым отбираются файлы стилей для дальнейшей сборки.
 
---------------------------------------
-
-## Пример использования технологии
+**Пример**
 
 ```js
 var CSSImportsTech = require('enb-css/techs/css-imports'),
