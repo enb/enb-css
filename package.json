@@ -33,7 +33,7 @@
     "Andrew Abramov <andrewblond@yandex.com>"
   ],
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 4"
   },
   "peerDependencies": {
     "enb": ">=0.16.0 <2.0.0"
